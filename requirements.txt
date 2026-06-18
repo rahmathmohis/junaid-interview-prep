@@ -1,0 +1,11 @@
+# Banking Application Requirements
+# Python 3.7+
+
+# Date utilities for tenure calculations
+python-dateutil>=2.8.2
+
+# Optional: For enhanced CLI experience
+colorama>=0.4.4  # Colored terminal output
+
+# Optional: For data persistence
+# If you want to add JSON/database features later
