@@ -9,6 +9,9 @@
 
 **Legend:** 🟢 Easy | 🟡 Medium | 🔴 Hard
 
+### CORE CONCEPTS & BASICS
+- [🟢 Data Types & Typing Systems Interview Guide](./Data_Types_Interview_Notes.md)
+
 ### DATA STRUCTURES (20 topics)
 1. [🟢 Arrays](#1-arrays)
 2. [🟢 Linked Lists](#2-linked-lists)
