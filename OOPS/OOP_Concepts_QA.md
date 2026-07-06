@@ -1,6 +1,7 @@
 # OOP Concepts Interview Q&A - Python
 
 ## Interview Preparation Guide for Campus Placement
+
 **Dayanand Sagar Engineering - 4th Year**
 
 ---
@@ -10,6 +11,7 @@
 **Legend:** 🟢 Easy | 🟡 Medium | 🔴 Hard | ⏱️ Estimated Time
 
 ### BASIC LEVEL (Q1-Q7) ⏱️ 30-40 min
+
 1. [🟢 What are the Four Pillars of OOP?](#q1-what-are-the-four-pillars-of-oop-explain-briefly) ⏱️ 5 min
 2. [🟢 Classes and Objects - Relationship](#q2-what-are-classes-and-objects-in-python-explain-their-relationship) ⏱️ 4 min
 3. [🟢 What is Abstraction in OOP?](#q3-what-is-abstraction-in-oop) ⏱️ 5 min
@@ -19,6 +21,7 @@
 7. [🟢 Abstraction vs Encapsulation](#q7-what-is-the-difference-between-abstraction-and-encapsulation) ⏱️ 4 min
 
 ### INTERMEDIATE LEVEL (Q8-Q20) ⏱️ 60-75 min
+
 8. [🟡 Types of Polymorphism](#q8-what-are-the-types-of-polymorphism-in-oop) ⏱️ 5 min
 9. [🟡 Magic Methods (Dunder Methods)](#q9-what-are-magic-methods-dunder-methods-in-python-give-examples) ⏱️ 5 min
 10. [🟡 `__init__` vs `__new__`](#q10-what-is-the-__init__-method-how-is-it-different-from-__new__) ⏱️ 5 min
@@ -34,7 +37,8 @@
 20. [🟡 `__str__` vs `__repr__`](#q20-what-is-the-difference-between-__str__-and-__repr__) ⏱️ 4 min
 
 ### ADVANCED LEVEL (Q21-Q30) ⏱️ 60-70 min
-21. [🔴 Method Resolution Order (MRO) & Diamond Problem](#q21-what-is-method-resolution-order-mro-and-the-diamond-problem) ⏱️ 6 min
+
+21. [🔴 Method Resolution Order (MRO) &amp; Diamond Problem](#q21-what-is-method-resolution-order-mro-and-the-diamond-problem) ⏱️ 6 min
 22. [🔴 Composition over Inheritance](#q22-when-should-you-use-composition-over-inheritance) ⏱️ 5 min
 23. [🔴 @property decorator](#q23-what-is-the-property-decorator-and-why-use-it) ⏱️ 6 min
 24. [🔴 Getters and Setters](#q24-what-are-getters-and-setters-why-use-them) ⏱️ 5 min
@@ -42,10 +46,11 @@
 26. [🔴 Singleton Pattern](#q26-what-is-the-singleton-pattern-implement-it-in-python) ⏱️ 6 min
 27. [🔴 Shallow Copy vs Deep Copy](#q27-what-is-the-difference-between-shallow-copy-and-deep-copy) ⏱️ 6 min
 28. [🔴 Aggregation vs Composition](#q28-what-is-aggregation-how-is-it-different-from-composition) ⏱️ 6 min
-29. [🔴 Multiple Inheritance Pros & Cons](#q29-what-is-multiple-inheritance-what-are-its-advantages-and-disadvantages) ⏱️ 6 min
+29. [🔴 Multiple Inheritance Pros &amp; Cons](#q29-what-is-multiple-inheritance-what-are-its-advantages-and-disadvantages) ⏱️ 6 min
 30. [🔴 Design Patterns in OOP](#q30-what-are-some-common-design-patterns-in-oop) ⏱️ 7 min
 
 ### 📚 Quick Reference Sections
+
 - [Key Comparison Tables](#-key-comparison-tables)
 - [Top 10 Most Asked Questions](#-top-10-most-asked-questions)
 - [Quick Reference Cheat Sheet](#-quick-reference-cheat-sheet)
@@ -65,6 +70,7 @@ The four pillars of Object-Oriented Programming are Encapsulation, Inheritance, 
 Understanding these pillars is essential for any OOP interview. They provide the conceptual framework for designing robust software systems and are universally applied across all OOP languages.
 
 **Code Example:**
+
 ```python
 # Brief demonstration of all four pillars
 from abc import ABC, abstractmethod
@@ -73,7 +79,7 @@ from abc import ABC, abstractmethod
 class BankAccount:
     def __init__(self, balance):
         self.__balance = balance  # Private
-    
+  
     def get_balance(self):
         return self.__balance
 
@@ -99,11 +105,11 @@ class Shape(ABC):
 **Key Takeaway:**
 Encapsulation protects data, Inheritance reuses code, Polymorphism provides flexibility, Abstraction hides complexity.
 **Benefits of OOP:**
+
 - **Modularity**: Objects are standalone entities communicating through public interfaces, promoting code separation and easier maintenance
 - **Reusability**: Class hierarchies and objects can be reused across projects; inheritance allows acquiring attributes from parent classes
 - **Extensibility**: New features can be added through inheritance and interfaces without modifying existing code
 - **Flexibility**: Polymorphism enables objects to adapt behavior based on context with the same interface
-
 
 ---
 
@@ -116,12 +122,13 @@ A class is a blueprint or template that defines the structure and behavior of ob
 Classes allow us to model real-world entities and create reusable code. Instead of writing repetitive code, we define once and create multiple instances.
 
 **Code Example:**
+
 ```python
 class Student:
     def __init__(self, name, roll_no):
         self.name = name
         self.roll_no = roll_no
-    
+  
     def display(self):
         print(f"Student: {self.name}, Roll: {self.roll_no}")
 
@@ -145,6 +152,7 @@ Abstraction is the process of hiding complex implementation details and showing 
 Abstraction reduces complexity by allowing users to work with simplified interfaces. It helps in managing large codebases by hiding unnecessary details and focusing on high-level functionality.
 
 **Code Example:**
+
 ```python
 from abc import ABC, abstractmethod
 
@@ -152,7 +160,7 @@ class Database(ABC):
     @abstractmethod
     def connect(self):
         pass
-    
+  
     @abstractmethod
     def execute_query(self, query):
         pass
@@ -160,14 +168,14 @@ class Database(ABC):
 class MySQL(Database):
     def connect(self):
         print("Connected to MySQL")
-    
+  
     def execute_query(self, query):
         print(f"Executing MySQL query: {query}")
 
 class MongoDB(Database):
     def connect(self):
         print("Connected to MongoDB")
-    
+  
     def execute_query(self, query):
         print(f"Executing MongoDB query: {query}")
 
@@ -190,15 +198,16 @@ Encapsulation is the concept of bundling data (attributes) and methods that oper
 Encapsulation protects data from accidental modification and makes code more maintainable. We can change internal implementation without affecting external code.
 
 **Code Example:**
+
 ```python
 class BankAccount:
     def __init__(self, balance):
         self.__balance = balance  # Private attribute
-    
+  
     def deposit(self, amount):
         if amount > 0:
             self.__balance += amount
-    
+  
     def get_balance(self):
         return self.__balance
 
@@ -222,12 +231,13 @@ Inheritance allows a class (child/derived) to inherit properties and methods fro
 Instead of duplicating code, we can extend existing classes and add specialized functionality, following the DRY (Don't Repeat Yourself) principle.
 
 **Code Example:**
+
 ```python
 # Single Inheritance
 class Vehicle:
     def __init__(self, brand):
         self.brand = brand
-    
+  
     def start(self):
         print(f"{self.brand} vehicle started")
 
@@ -235,7 +245,7 @@ class Car(Vehicle):
     def __init__(self, brand, model):
         super().__init__(brand)
         self.model = model
-    
+  
     def drive(self):
         print(f"Driving {self.brand} {self.model}")
 
@@ -258,6 +268,7 @@ Python supports five types of inheritance: Single (one parent, one child), Multi
 Choosing the right inheritance type affects code organization, maintainability, and complexity. Understanding types helps in designing class hierarchies effectively.
 
 **Code Example:**
+
 ```python
 # 1. Single Inheritance
 class Animal:
@@ -311,6 +322,7 @@ Abstraction is hiding complex implementation details and showing only essential 
 Abstraction reduces complexity by hiding unnecessary details. Users interact with simple interfaces without needing to understand internal workings.
 
 **Code Example:**
+
 ```python
 from abc import ABC, abstractmethod
 
@@ -348,6 +360,7 @@ Polymorphism has two main types: Compile-time Polymorphism (Method Overloading -
 Understanding polymorphism types helps in designing flexible APIs and choosing the right approach for different scenarios.
 
 **Code Example:**
+
 ```python
 # Runtime Polymorphism (Method Overriding)
 class Animal:
@@ -394,18 +407,19 @@ Magic methods, also called dunder methods (double underscore), are special metho
 They make custom classes behave like built-in types, enabling intuitive syntax like `obj1 + obj2` or `len(obj)`.
 
 **Code Example:**
+
 ```python
 class Book:
     def __init__(self, title, pages):
         self.title = title
         self.pages = pages
-    
+  
     def __str__(self):
         return f"Book: {self.title}"
-    
+  
     def __len__(self):
         return self.pages
-    
+  
     def __add__(self, other):
         return self.pages + other.pages
 
@@ -430,13 +444,14 @@ Magic methods let you customize how your objects work with Python's built-in ope
 Understanding this distinction is important for advanced scenarios like implementing singletons, customizing immutable object creation, or metaclass programming.
 
 **Code Example:**
+
 ```python
 class Person:
     def __new__(cls, name):
         print(f"Creating instance with __new__")
         instance = super().__new__(cls)
         return instance
-    
+  
     def __init__(self, name):
         print(f"Initializing instance with __init__")
         self.name = name
@@ -449,7 +464,7 @@ p = Person("Alice")
 # Singleton pattern using __new__
 class Singleton:
     _instance = None
-    
+  
     def __new__(cls):
         if cls._instance is None:
             cls._instance = super().__new__(cls)
@@ -474,10 +489,11 @@ Class variables are shared among all instances of a class and defined at the cla
 Understanding this prevents bugs where you accidentally share data across instances or fail to share data that should be common.
 
 **Code Example:**
+
 ```python
 class Employee:
     company = "TechCorp"  # Class variable
-    
+  
     def __init__(self, name, salary):
         self.name = name      # Instance variable
         self.salary = salary  # Instance variable
@@ -510,20 +526,21 @@ Instance methods take `self` as first parameter and can access/modify object sta
 Choosing the right method type makes code clearer and more maintainable, showing intent about what data the method needs.
 
 **Code Example:**
+
 ```python
 class MathOperations:
     pi = 3.14159
-    
+  
     def __init__(self, number):
         self.number = number
-    
+  
     def square(self):  # Instance method
         return self.number ** 2
-    
+  
     @classmethod
     def get_pi(cls):  # Class method
         return cls.pi
-    
+  
     @staticmethod
     def add(x, y):  # Static method
         return x + y
@@ -548,6 +565,7 @@ Method overriding occurs when a child class provides a specific implementation o
 Overriding allows customizing inherited behavior while maintaining the same interface, essential for polymorphism.
 
 **Code Example:**
+
 ```python
 class Shape:
     def area(self):
@@ -557,14 +575,14 @@ class Rectangle(Shape):
     def __init__(self, length, width):
         self.length = length
         self.width = width
-    
+  
     def area(self):  # Overriding parent method
         return self.length * self.width
 
 class Circle(Shape):
     def __init__(self, radius):
         self.radius = radius
-    
+  
     def area(self):  # Overriding parent method
         return 3.14 * self.radius ** 2
 
@@ -588,6 +606,7 @@ The `super()` function returns a proxy object that allows you to call methods of
 Using `super()` ensures proper initialization of parent classes and maintains the inheritance chain, especially crucial in multiple inheritance scenarios.
 
 **Code Example:**
+
 ```python
 class Vehicle:
     def __init__(self, brand):
@@ -599,7 +618,7 @@ class Car(Vehicle):
         super().__init__(brand)  # Call parent constructor
         self.model = model
         print(f"Car init: {model}")
-    
+  
     def display(self):
         super().display() if hasattr(Vehicle, 'display') else None
         print(f"Car: {self.brand} {self.model}")
@@ -633,18 +652,19 @@ Duck typing is a programming concept where the type or class of an object is les
 Duck typing makes Python flexible and enables polymorphism without explicit inheritance or interfaces, leading to more concise code.
 
 **Code Example:**
+
 ```python
 class Duck:
     def swim(self):
         print("Duck swimming")
-    
+  
     def fly(self):
         print("Duck flying")
 
 class Airplane:
     def swim(self):
         print("Airplane on water")
-    
+  
     def fly(self):
         print("Airplane flying")
 
@@ -674,16 +694,17 @@ Access modifiers control the accessibility of class members. Python uses naming 
 Access modifiers help implement encapsulation and signal intended usage to other developers, preventing accidental modification of internal implementation.
 
 **Code Example:**
+
 ```python
 class BankAccount:
     def __init__(self, account_no, balance):
         self.account_no = account_no       # Public
         self._interest_rate = 0.03         # Protected (convention)
         self.__balance = balance           # Private (name mangled)
-    
+  
     def get_balance(self):
         return self.__balance
-    
+  
     def _calculate_interest(self):         # Protected method
         return self.__balance * self._interest_rate
 
@@ -709,11 +730,12 @@ Name mangling is Python's mechanism to make class members private by internally 
 Name mangling prevents accidental overriding in subclasses and signals that an attribute is internal implementation detail, though it's not truly private.
 
 **Code Example:**
+
 ```python
 class Parent:
     def __init__(self):
         self.__private = "Parent's private"
-    
+  
     def show(self):
         print(self.__private)
 
@@ -721,7 +743,7 @@ class Child(Parent):
     def __init__(self):
         super().__init__()
         self.__private = "Child's private"  # Doesn't override parent's
-    
+  
     def show_both(self):
         self.show()  # Parent's private
         print(self.__private)  # Child's private
@@ -751,6 +773,7 @@ Name mangling transforms `__attr` to `_ClassName__attr` to prevent conflicts, bu
 Choosing the right relationship affects code design, flexibility, and maintainability. Misusing inheritance leads to tight coupling and rigid hierarchies.
 
 **Code Example:**
+
 ```python
 # Is-a relationship (Inheritance)
 class Animal:
@@ -773,7 +796,7 @@ class Car:  # Car HAS-A Engine
     def __init__(self):
         self.engine = Engine()  # Composition
         self.wheels = 4
-    
+  
     def start(self):
         self.engine.start()
         print("Car moving")
@@ -796,24 +819,25 @@ Operator overloading allows you to define custom behavior for operators (+, -, *
 Operator overloading makes custom classes intuitive to use, allowing them to behave like built-in types with natural syntax.
 
 **Code Example:**
+
 ```python
 class Vector:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-    
+  
     def __add__(self, other):  # Overload + operator
         return Vector(self.x + other.x, self.y + other.y)
-    
+  
     def __sub__(self, other):  # Overload - operator
         return Vector(self.x - other.x, self.y - other.y)
-    
+  
     def __mul__(self, scalar):  # Overload * operator
         return Vector(self.x * scalar, self.y * scalar)
-    
+  
     def __eq__(self, other):  # Overload == operator
         return self.x == other.x and self.y == other.y
-    
+  
     def __str__(self):
         return f"Vector({self.x}, {self.y})"
 
@@ -839,16 +863,17 @@ Magic methods enable operator overloading: `__add__` for +, `__sub__` for -, `__
 Good `__str__` and `__repr__` implementations make objects easier to debug and display, following Python's philosophy of readability.
 
 **Code Example:**
+
 ```python
 class Product:
     def __init__(self, name, price):
         self.name = name
         self.price = price
-    
+  
     def __str__(self):
         # User-friendly representation
         return f"{self.name} - ${self.price}"
-    
+  
     def __repr__(self):
         # Developer-friendly, recreatable representation
         return f"Product('{self.name}', {self.price})"
@@ -879,6 +904,7 @@ MRO is the order in which Python searches for methods in a hierarchy of classes,
 Understanding MRO prevents confusion in complex inheritance hierarchies and helps debug method lookup issues.
 
 **Code Example:**
+
 ```python
 class A:
     def show(self):
@@ -915,6 +941,7 @@ Composition is a "has-a" relationship where a class contains instances of other 
 Composition provides more flexibility, reduces coupling, and avoids problems with deep inheritance hierarchies. It's easier to change and test.
 
 **Code Example:**
+
 ```python
 # Inheritance approach (tight coupling)
 class Engine:
@@ -925,7 +952,7 @@ class Engine:
 class Car:
     def __init__(self):
         self.engine = Engine()  # Car HAS-A Engine
-    
+  
     def start(self):
         self.engine.start()
         print("Car is ready to drive")
@@ -951,21 +978,22 @@ The `@property` decorator allows you to define methods that can be accessed like
 Properties provide encapsulation with clean syntax - you can add validation or computation logic later without changing how users access the attribute.
 
 **Code Example:**
+
 ```python
 class Temperature:
     def __init__(self, celsius):
         self._celsius = celsius
-    
+  
     @property
     def celsius(self):
         return self._celsius
-    
+  
     @celsius.setter
     def celsius(self, value):
         if value < -273.15:
             raise ValueError("Temperature below absolute zero!")
         self._celsius = value
-    
+  
     @property
     def fahrenheit(self):
         return (self._celsius * 9/5) + 32
@@ -991,23 +1019,24 @@ Getters and setters are methods used to access (get) and modify (set) private at
 Getters and setters maintain encapsulation, allow adding validation logic, and enable changing internal implementation without breaking external code.
 
 **Code Example:**
+
 ```python
 class Person:
     def __init__(self, age):
         self._age = age
-    
+  
     @property
     def age(self):  # Getter
         print("Getting age")
         return self._age
-    
+  
     @age.setter
     def age(self, value):  # Setter
         print("Setting age")
         if value < 0 or value > 150:
             raise ValueError("Invalid age")
         self._age = value
-    
+  
     @age.deleter
     def age(self):  # Deleter
         print("Deleting age")
@@ -1033,6 +1062,7 @@ An abstract class is a class that cannot be instantiated and contains one or mor
 Abstract classes enforce a contract for subclasses, ensuring they implement required methods. They enable designing common interfaces while allowing partial implementation.
 
 **Code Example:**
+
 ```python
 from abc import ABC, abstractmethod
 
@@ -1040,11 +1070,11 @@ from abc import ABC, abstractmethod
 class Animal(ABC):
     def __init__(self, name):
         self.name = name
-    
+  
     @abstractmethod
     def sound(self):  # Abstract method - must be implemented
         pass
-    
+  
     def sleep(self):  # Concrete method - optional to override
         print(f"{self.name} is sleeping")
 
@@ -1053,7 +1083,7 @@ class Flyable(ABC):
     @abstractmethod
     def fly(self):
         pass
-    
+  
     @abstractmethod
     def land(self):
         pass
@@ -1082,16 +1112,17 @@ Singleton is a design pattern that restricts a class to have only one instance t
 Singleton ensures controlled access to shared resources, prevents multiple instances that could cause conflicts, and provides a global access point.
 
 **Code Example:**
+
 ```python
 # Method 1: Using __new__
 class Singleton:
     _instance = None
-    
+  
     def __new__(cls, *args, **kwargs):
         if cls._instance is None:
             cls._instance = super().__new__(cls)
         return cls._instance
-    
+  
     def __init__(self, value):
         self.value = value
 
@@ -1134,6 +1165,7 @@ Shallow copy creates a new object but inserts references to the objects found in
 Understanding copy types prevents bugs when working with mutable nested objects. Wrong choice can lead to unintended data sharing or modification.
 
 **Code Example:**
+
 ```python
 import copy
 
@@ -1181,6 +1213,7 @@ Both aggregation and composition represent "has-a" relationships. Composition is
 Choosing between aggregation and composition affects object lifecycle management and memory handling, impacting design decisions.
 
 **Code Example:**
+
 ```python
 # Composition - Engine cannot exist without Car
 class Engine:
@@ -1191,7 +1224,7 @@ class Car:
     def __init__(self, brand, hp):
         self.brand = brand
         self.engine = Engine(hp)  # Car creates and owns Engine
-    
+  
     def __del__(self):
         print(f"{self.brand} destroyed with its engine")
 
@@ -1207,7 +1240,7 @@ class Department:
     def __init__(self, name):
         self.name = name
         self.students = []
-    
+  
     def add_student(self, student):
         self.students.append(student)
 
@@ -1237,6 +1270,7 @@ Multiple inheritance allows a class to inherit from more than one parent class, 
 Multiple inheritance enables code reuse from multiple sources but can lead to complexity and the diamond problem if not used carefully.
 
 **Code Example:**
+
 ```python
 class Flyer:
     def fly(self):
@@ -1290,6 +1324,7 @@ Design patterns are reusable solutions to common software design problems. Key O
 Design patterns provide proven solutions, improve code maintainability, and enable better communication among developers using common vocabulary.
 
 **Code Example:**
+
 ```python
 # 1. Factory Pattern
 class Dog:
@@ -1313,10 +1348,10 @@ print(animal.speak())  # Woof
 class Subject:
     def __init__(self):
         self._observers = []
-    
+  
     def attach(self, observer):
         self._observers.append(observer)
-    
+  
     def notify(self, message):
         for observer in self._observers:
             observer.update(message)
@@ -1324,7 +1359,7 @@ class Subject:
 class Observer:
     def __init__(self, name):
         self.name = name
-    
+  
     def update(self, message):
         print(f"{self.name} received: {message}")
 
@@ -1346,18 +1381,18 @@ Common patterns: Singleton, Factory, Observer, Strategy, Decorator, Adapter - le
 
 ## What Interviewers Look For
 
-✅ **Clear Communication**: Can you explain concepts simply without jargon overload?  
-✅ **Practical Understanding**: Do you know when and why to use each concept?  
-✅ **Code Quality**: Are your examples clean, working, and relevant?  
-✅ **Depth**: Can you go deeper when asked follow-up questions?  
+✅ **Clear Communication**: Can you explain concepts simply without jargon overload?
+✅ **Practical Understanding**: Do you know when and why to use each concept?
+✅ **Code Quality**: Are your examples clean, working, and relevant?
+✅ **Depth**: Can you go deeper when asked follow-up questions?
 ✅ **Confidence**: Do you sound sure of what you know, and honest about what you don't?
 
 ## Common Pitfalls to Avoid
 
-❌ **Memorizing definitions verbatim** - Explain in your own words  
-❌ **Code without explanation** - Always connect code to concept  
-❌ **Too theoretical** - Always give real-world context  
-❌ **Saying "I don't know"** - Try to reason it out, show your thought process  
+❌ **Memorizing definitions verbatim** - Explain in your own words
+❌ **Code without explanation** - Always connect code to concept
+❌ **Too theoretical** - Always give real-world context
+❌ **Saying "I don't know"** - Try to reason it out, show your thought process
 ❌ **Going off-topic** - Stay focused on what's asked
 
 ---
@@ -1366,65 +1401,65 @@ Common patterns: Singleton, Factory, Observer, Strategy, Decorator, Adapter - le
 
 ### Abstraction vs Encapsulation
 
-| Aspect | Abstraction | Encapsulation |
-|--------|-------------|---------------|
-| **Purpose** | Hide complexity, show only essentials | Hide data, provide controlled access |
-| **Focus** | What an object does | How data is protected |
-| **Implementation** | Abstract classes, interfaces (ABC) | Access modifiers (public, protected, private) |
-| **Example** | Payment interface with process_payment() | BankAccount with private __balance |
-| **Level** | Design level | Implementation level |
-| **Goal** | Reduce complexity | Data security and integrity |
+| Aspect                   | Abstraction                              | Encapsulation                                 |
+| ------------------------ | ---------------------------------------- | --------------------------------------------- |
+| **Purpose**        | Hide complexity, show only essentials    | Hide data, provide controlled access          |
+| **Focus**          | What an object does                      | How data is protected                         |
+| **Implementation** | Abstract classes, interfaces (ABC)       | Access modifiers (public, protected, private) |
+| **Example**        | Payment interface with process_payment() | BankAccount with private __balance            |
+| **Level**          | Design level                             | Implementation level                          |
+| **Goal**           | Reduce complexity                        | Data security and integrity                   |
 
 ### `__str__` vs `__repr__`
 
-| Aspect | `__str__` | `__repr__` |
-|--------|-----------|------------|
-| **Purpose** | User-friendly display | Developer-friendly, unambiguous |
-| **Target Audience** | End users | Developers/debugging |
-| **Used By** | `print()`, `str()` | `repr()`, interactive shell |
-| **Goal** | Readability | Recreate object (if possible) |
-| **Example** | "Laptop - $999" | "Product('Laptop', 999)" |
-| **Fallback** | Falls back to `__repr__` if not defined | Must be defined or uses default |
+| Aspect                    | `__str__`                               | `__repr__`                    |
+| ------------------------- | ----------------------------------------- | ------------------------------- |
+| **Purpose**         | User-friendly display                     | Developer-friendly, unambiguous |
+| **Target Audience** | End users                                 | Developers/debugging            |
+| **Used By**         | `print()`, `str()`                    | `repr()`, interactive shell   |
+| **Goal**            | Readability                               | Recreate object (if possible)   |
+| **Example**         | "Laptop - $999"                           | "Product('Laptop', 999)"        |
+| **Fallback**        | Falls back to `__repr__` if not defined | Must be defined or uses default |
 
 ### Class vs Instance vs Static Methods
 
-| Method Type | First Parameter | Access To | Use Case | Decorator |
-|-------------|----------------|-----------|----------|-----------|
-| **Instance** | `self` | Instance & class data | Object-specific operations | None |
-| **Class** | `cls` | Only class data | Factory methods, class-level ops | `@classmethod` |
-| **Static** | None | No instance/class data | Utility functions in class namespace | `@staticmethod` |
+| Method Type        | First Parameter | Access To              | Use Case                             | Decorator         |
+| ------------------ | --------------- | ---------------------- | ------------------------------------ | ----------------- |
+| **Instance** | `self`        | Instance & class data  | Object-specific operations           | None              |
+| **Class**    | `cls`         | Only class data        | Factory methods, class-level ops     | `@classmethod`  |
+| **Static**   | None            | No instance/class data | Utility functions in class namespace | `@staticmethod` |
 
 ### Inheritance vs Composition
 
-| Aspect | Inheritance (is-a) | Composition (has-a) |
-|--------|-------------------|---------------------|
-| **Relationship** | Child IS-A parent | Container HAS-A component |
-| **Coupling** | Tight coupling | Loose coupling |
-| **Flexibility** | Less flexible | More flexible |
-| **Example** | Dog is-a Animal | Car has-a Engine |
-| **When to Use** | Clear hierarchical relationship | Need functionality without relationship |
-| **Modification** | Harder to change parent | Easy to swap components |
+| Aspect                 | Inheritance (is-a)              | Composition (has-a)                     |
+| ---------------------- | ------------------------------- | --------------------------------------- |
+| **Relationship** | Child IS-A parent               | Container HAS-A component               |
+| **Coupling**     | Tight coupling                  | Loose coupling                          |
+| **Flexibility**  | Less flexible                   | More flexible                           |
+| **Example**      | Dog is-a Animal                 | Car has-a Engine                        |
+| **When to Use**  | Clear hierarchical relationship | Need functionality without relationship |
+| **Modification** | Harder to change parent         | Easy to swap components                 |
 
 ### Shallow Copy vs Deep Copy
 
-| Aspect | Shallow Copy | Deep Copy |
-|--------|--------------|-----------|
-| **Method** | `copy.copy()` | `copy.deepcopy()` |
-| **Copies** | Top-level object | All nested objects recursively |
-| **Nested Objects** | Shares references | Creates new copies |
-| **Speed** | Faster | Slower |
-| **Memory** | Less memory | More memory |
-| **Use Case** | When nested objects shouldn't be copied | When complete independence needed |
+| Aspect                   | Shallow Copy                            | Deep Copy                         |
+| ------------------------ | --------------------------------------- | --------------------------------- |
+| **Method**         | `copy.copy()`                         | `copy.deepcopy()`               |
+| **Copies**         | Top-level object                        | All nested objects recursively    |
+| **Nested Objects** | Shares references                       | Creates new copies                |
+| **Speed**          | Faster                                  | Slower                            |
+| **Memory**         | Less memory                             | More memory                       |
+| **Use Case**       | When nested objects shouldn't be copied | When complete independence needed |
 
 ### Aggregation vs Composition
 
-| Aspect | Aggregation | Composition |
-|--------|-------------|-------------|
-| **Ownership** | Weak (child can exist independently) | Strong (child cannot exist without parent) |
-| **Lifecycle** | Child survives parent deletion | Child dies with parent |
-| **Example** | Student in Department | Engine in Car |
-| **Relationship Strength** | "uses-a" | "owns-a" |
-| **Dependency** | Low | High |
+| Aspect                          | Aggregation                          | Composition                                |
+| ------------------------------- | ------------------------------------ | ------------------------------------------ |
+| **Ownership**             | Weak (child can exist independently) | Strong (child cannot exist without parent) |
+| **Lifecycle**             | Child survives parent deletion       | Child dies with parent                     |
+| **Example**               | Student in Department                | Engine in Car                              |
+| **Relationship Strength** | "uses-a"                             | "owns-a"                                   |
+| **Dependency**            | Low                                  | High                                       |
 
 ---
 
@@ -1450,22 +1485,26 @@ These questions appear in 80%+ of OOP interviews. Master these first:
 ## 📝 Quick Reference Cheat Sheet
 
 ### Four Pillars (Remember: EIPA)
+
 - **E**ncapsulation → Data hiding with `__private`
 - **I**nheritance → Code reuse via `class Child(Parent)`
 - **P**olymorphism → Same interface, different behavior
 - **A**bstraction → Hide complexity with ABC
 
 ### Method Types (Remember: ICS)
+
 - **I**nstance methods → `def method(self):`
 - **C**lass methods → `@classmethod def method(cls):`
 - **S**tatic methods → `@staticmethod def method():`
 
 ### Access Modifiers (Remember: PPP)
+
 - **P**ublic → `name` (accessible everywhere)
 - **P**rotected → `_name` (convention, use internally)
 - **P**rivate → `__name` (name mangled)
 
 ### Magic Methods (Most Important)
+
 ```python
 __init__      # Constructor/Initializer
 __new__       # Actual constructor (before __init__)
@@ -1479,6 +1518,7 @@ __call__      # Make object callable like function
 ```
 
 ### Inheritance Syntax Quick Reference
+
 ```python
 # Single
 class Child(Parent):
@@ -1498,15 +1538,16 @@ ClassName.mro()
 ### Common Interview Code Templates
 
 **1. Property with Getter/Setter:**
+
 ```python
 class Example:
     def __init__(self, value):
         self._value = value
-    
+  
     @property
     def value(self):
         return self._value
-    
+  
     @value.setter
     def value(self, val):
         if val < 0:
@@ -1515,10 +1556,11 @@ class Example:
 ```
 
 **2. Singleton Pattern:**
+
 ```python
 class Singleton:
     _instance = None
-    
+  
     def __new__(cls):
         if cls._instance is None:
             cls._instance = super().__new__(cls)
@@ -1526,6 +1568,7 @@ class Singleton:
 ```
 
 **3. Abstract Class:**
+
 ```python
 from abc import ABC, abstractmethod
 
@@ -1538,6 +1581,7 @@ class Base(ABC):
 ### Interview Answer Framework
 
 **Structure every answer as:**
+
 1. **Definition** (1-2 sentences)
 2. **Why it matters** (real-world context)
 3. **Code example** (short, working code)
@@ -1560,16 +1604,17 @@ A destructor is a special method called `__del__` in Python that is invoked when
 Understanding destructors helps manage resources properly, though Python's garbage collector usually handles memory automatically. Explicit cleanup is sometimes needed for external resources.
 
 **Code Example:**
+
 ```python
 class FileManager:
     def __init__(self, filename):
         self.filename = filename
         self.file = open(filename, 'w')
         print(f"File {filename} opened")
-    
+  
     def write_data(self, data):
         self.file.write(data)
-    
+  
     def __del__(self):
         self.file.close()
         print(f"File {self.filename} closed - Destructor called")
@@ -1584,11 +1629,11 @@ del fm  # Explicitly call destructor
 class BetterFileManager:
     def __init__(self, filename):
         self.filename = filename
-    
+  
     def __enter__(self):
         self.file = open(self.filename, 'w')
         return self
-    
+  
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.file.close()
 
@@ -1610,19 +1655,20 @@ Cohesion refers to how closely the methods and data within a single class are re
 High cohesion aligns with the Single Responsibility Principle (SRP), making classes more maintainable, testable, and easier to understand.
 
 **Code Example:**
+
 ```python
 # LOW COHESION - Class doing unrelated things
 class BadFileUtility:
     def read_file(self, filename):
         with open(filename, 'r') as f:
             return f.read()
-    
+  
     def write_to_database(self, data):
         print(f"Writing {data} to database")
-    
+  
     def send_email(self, recipient):
         print(f"Email sent to {recipient}")
-    
+  
     def calculate_tax(self, amount):
         return amount * 0.15
 
@@ -1630,11 +1676,11 @@ class BadFileUtility:
 class FileReader:
     def __init__(self, filename):
         self.filename = filename
-    
+  
     def read(self):
         with open(self.filename, 'r') as f:
             return f.read()
-    
+  
     def read_lines(self):
         with open(self.filename, 'r') as f:
             return f.readlines()
@@ -1642,7 +1688,7 @@ class FileReader:
 class DatabaseWriter:
     def __init__(self, connection):
         self.connection = connection
-    
+  
     def write(self, data):
         print(f"Writing {data} to database")
 
@@ -1665,6 +1711,7 @@ Coupling describes the degree of interdependence between classes or modules. Loo
 Loose coupling enables independent development, testing, and modification of classes. It aligns with SOLID principles, particularly the Dependency Inversion Principle.
 
 **Code Example:**
+
 ```python
 # TIGHT COUPLING - Hard dependency
 class TightEmailService:
@@ -1674,7 +1721,7 @@ class TightEmailService:
 class TightNotifier:
     def __init__(self):
         self.service = TightEmailService()  # Hard-coded!
-    
+  
     def notify(self, user, msg):
         self.service.send(user, msg)
 
@@ -1699,7 +1746,7 @@ class SMSService(NotificationService):
 class LooseNotifier:
     def __init__(self, service: NotificationService):
         self.service = service  # Injected dependency
-    
+  
     def notify(self, user, msg):
         self.service.send(user, msg)
 
@@ -1725,6 +1772,7 @@ Procedural programming is linear and task-centric, organizing code as functions 
 Understanding paradigm differences helps choose the right approach for different problems and appreciate OOP's benefits in managing complexity and large-scale systems.
 
 **Code Example:**
+
 ```python
 # PROCEDURAL APPROACH
 def calculate_gross_salary(base, bonus):
@@ -1752,13 +1800,13 @@ class Employee:
         self.name = name
         self.base_salary = base_salary
         self.bonus = bonus
-    
+  
     def calculate_gross(self):
         return self.base_salary + self.bonus
-    
+  
     def calculate_tax(self, tax_rate):
         return self.calculate_gross() * tax_rate
-    
+  
     def calculate_net_salary(self, tax_rate):
         gross = self.calculate_gross()
         tax = self.calculate_tax(tax_rate)
@@ -1784,13 +1832,14 @@ Python constructors initialize objects. There are three main types: Default Cons
 Understanding constructor types helps in proper object initialization and copying mechanisms, preventing common bugs with mutable default arguments.
 
 **Code Example:**
+
 ```python
 import copy
 
 class Student:
     # Class variable
     school = "Dayanand Sagar Engineering"
-    
+  
     # Default Constructor
     def __init__(self):
         self.name = "Unknown"
@@ -1814,7 +1863,7 @@ class Person:
         else:
             self.name = name
             self.age = age
-    
+  
     def display(self):
         print(f"Name: {self.name}, Age: {self.age}")
 
@@ -1841,49 +1890,49 @@ Python supports default and parameterized constructors via `__init__`. For copyi
 
 ### Procedural vs OOP Programming
 
-| Aspect | Procedural | Object-Oriented |
-|--------|-----------|-----------------|
-| **Focus** | Functions/procedures | Objects and classes |
-| **Data & Functions** | Separated | Bundled together (encapsulation) |
-| **Data Access** | Often global | Controlled via access modifiers |
-| **Code Reuse** | Function calls | Inheritance, polymorphism |
-| **Approach** | Top-down | Bottom-up |
-| **Security** | Less secure (exposed data) | More secure (data hiding) |
-| **Modification** | Difficult (affects multiple places) | Easier (localized in classes) |
-| **Real-world Modeling** | Difficult | Natural and intuitive |
-| **Scalability** | Harder for large systems | Better for complex systems |
-| **Examples** | C, Pascal | Java, Python, C++ |
+| Aspect                        | Procedural                          | Object-Oriented                  |
+| ----------------------------- | ----------------------------------- | -------------------------------- |
+| **Focus**               | Functions/procedures                | Objects and classes              |
+| **Data & Functions**    | Separated                           | Bundled together (encapsulation) |
+| **Data Access**         | Often global                        | Controlled via access modifiers  |
+| **Code Reuse**          | Function calls                      | Inheritance, polymorphism        |
+| **Approach**            | Top-down                            | Bottom-up                        |
+| **Security**            | Less secure (exposed data)          | More secure (data hiding)        |
+| **Modification**        | Difficult (affects multiple places) | Easier (localized in classes)    |
+| **Real-world Modeling** | Difficult                           | Natural and intuitive            |
+| **Scalability**         | Harder for large systems            | Better for complex systems       |
+| **Examples**            | C, Pascal                           | Java, Python, C++                |
 
 ### Cohesion Levels (Worst to Best)
 
-| Level | Description | Desirability |
-|-------|-------------|--------------|
-| **Coincidental** | Random, unrelated methods | ❌ Worst |
-| **Logical** | Methods grouped by logic type | ❌ Poor |
-| **Temporal** | Methods executed at same time | ⚠️ Acceptable |
-| **Procedural** | Methods in execution sequence | ⚠️ Acceptable |
-| **Communicational** | Methods work on same data | ✅ Good |
-| **Sequential** | Output of one = input of next | ✅ Good |
-| **Functional** | All contribute to single task | ✅✅ Best |
+| Level                     | Description                   | Desirability    |
+| ------------------------- | ----------------------------- | --------------- |
+| **Coincidental**    | Random, unrelated methods     | ❌ Worst        |
+| **Logical**         | Methods grouped by logic type | ❌ Poor         |
+| **Temporal**        | Methods executed at same time | ⚠️ Acceptable |
+| **Procedural**      | Methods in execution sequence | ⚠️ Acceptable |
+| **Communicational** | Methods work on same data     | ✅ Good         |
+| **Sequential**      | Output of one = input of next | ✅ Good         |
+| **Functional**      | All contribute to single task | ✅✅ Best       |
 
 ### Coupling Types (Worst to Best)
 
-| Type | Description | Level |
-|------|-------------|-------|
-| **Content Coupling** | One module modifies another's internals | ❌ Worst |
-| **Common Coupling** | Modules share global data | ❌ Very Bad |
-| **Control Coupling** | One module controls another's flow | ⚠️ Bad |
-| **Stamp Coupling** | Modules share composite data | ⚠️ Moderate |
-| **Data Coupling** | Modules share simple data | ✅ Good |
-| **Message Coupling** | Communicate via interfaces only | ✅✅ Best |
+| Type                       | Description                             | Level         |
+| -------------------------- | --------------------------------------- | ------------- |
+| **Content Coupling** | One module modifies another's internals | ❌ Worst      |
+| **Common Coupling**  | Modules share global data               | ❌ Very Bad   |
+| **Control Coupling** | One module controls another's flow      | ⚠️ Bad      |
+| **Stamp Coupling**   | Modules share composite data            | ⚠️ Moderate |
+| **Data Coupling**    | Modules share simple data               | ✅ Good       |
+| **Message Coupling** | Communicate via interfaces only         | ✅✅ Best     |
 
 ### Constructor Types Comparison
 
-| Type | Parameters | Use Case | Example |
-|------|-----------|----------|---------|
-| **Default** | None (only self) | Simple initialization | `def __init__(self):` |
-| **Parameterized** | Accepts arguments | Custom initialization | `def __init__(self, name, age):` |
-| **Copy** | Another object | Clone existing object | Use `copy` module or custom logic |
+| Type                    | Parameters        | Use Case              | Example                             |
+| ----------------------- | ----------------- | --------------------- | ----------------------------------- |
+| **Default**       | None (only self)  | Simple initialization | `def __init__(self):`             |
+| **Parameterized** | Accepts arguments | Custom initialization | `def __init__(self, name, age):`  |
+| **Copy**          | Another object    | Clone existing object | Use `copy` module or custom logic |
 
 ---
 
@@ -1892,15 +1941,10 @@ Python supports default and parameterized constructors via `__init__`. For copyi
 ### Based on Reference Materials
 
 1. **Understand C++ vs Python differences**: Many OOP concepts originated in C++. Know how Python adapts them (e.g., no true private members, duck typing).
-
 2. **Real-world analogies help**: Use examples like Bank Account (encapsulation), Vehicle inheritance, Payment systems (abstraction).
-
 3. **Know when NOT to use OOP**: For simple scripts, procedural is fine. Don't over-engineer.
-
 4. **SOLID principles connection**: Link your answers to SOLID when discussing coupling, cohesion, and design patterns.
-
 5. **Memory management awareness**: Understand destructor differences - Python has garbage collection, unlike C++.
-
 6. **Context managers over destructors**: In Python interviews, emphasize `with` statement and context managers for resource management.
 
 ---
