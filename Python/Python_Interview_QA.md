@@ -1730,6 +1730,73 @@ LEGB rule determines scope resolution. Use `global` for module-level, `nonlocal`
 
 ---
 
+### Q36. `zip()` and `enumerate()` 🟡
+
+**Definition:**
+- `zip()`: Combines multiple iterables element-wise into tuples
+- `enumerate()`: Adds counter/index to iterable elements
+
+**Why it matters:**
+Essential for iterating over multiple sequences simultaneously or accessing both index and value.
+
+**Code Example:**
+```python
+# zip() - Combining iterables
+names = ["Alice", "Bob", "Charlie"]
+ages = [25, 30, 35]
+cities = ["NYC", "LA", "Chicago"]
+
+# Basic zip
+for name, age in zip(names, ages):
+    print(f"{name} is {age} years old")
+
+# Zip multiple iterables
+for name, age, city in zip(names, ages, cities):
+    print(f"{name}, {age}, {city}")
+
+# Zip to create dictionary
+person_dict = dict(zip(names, ages))
+print(person_dict)  # {'Alice': 25, 'Bob': 30, 'Charlie': 35}
+
+# zip() stops at shortest iterable
+short_list = [1, 2]
+long_list = [10, 20, 30, 40]
+print(list(zip(short_list, long_list)))  # [(1, 10), (2, 20)]
+
+# enumerate() - Index and value
+fruits = ["apple", "banana", "cherry"]
+
+# Basic enumerate
+for index, fruit in enumerate(fruits):
+    print(f"{index}: {fruit}")
+
+# Start from custom index
+for index, fruit in enumerate(fruits, start=1):
+    print(f"{index}. {fruit}")
+
+# Enumerate with unpacking
+data = [("a", 1), ("b", 2), ("c", 3)]
+for idx, (letter, number) in enumerate(data):
+    print(f"Index {idx}: {letter} = {number}")
+
+# Practical use cases
+# 1. Finding indices matching condition
+numbers = [1, 3, 5, 7, 5, 9]
+indices_of_5 = [i for i, n in enumerate(numbers) if n == 5]
+print(indices_of_5)  # [2, 4]
+
+# 2. Parallel iteration with index
+matrix = [[1, 2], [3, 4], [5, 6]]
+for row_idx, row in enumerate(matrix):
+    for col_idx, val in enumerate(row):
+        print(f"matrix[{row_idx}][{col_idx}] = {val}")
+```
+
+**Key Takeaway:**
+`zip()` combines iterables efficiently, stops at shortest. `enumerate()` provides index-value pairs. Both are memory-efficient iterators.
+
+---
+
 ### Q40. `__str__` vs `__repr__` 🟡
 
 **Definition:**
@@ -1775,6 +1842,103 @@ print(str(p))  # Point(10, 20) (falls back to __repr__)
 
 **Key Takeaway:**
 `__str__` for readability, `__repr__` for debugging. Always define `__repr__`. `str()` falls back to `__repr__`.
+
+---
+
+### Q41. JSON Operations 🟡
+
+**Definition:**
+JSON (JavaScript Object Notation) is a lightweight data interchange format. Python's `json` module handles JSON serialization and deserialization.
+
+**Why it matters:**
+Essential for working with APIs, configuration files, and data exchange between systems.
+
+**Code Example:**
+```python
+import json
+
+# Python objects to JSON (Serialization/Encoding)
+data = {
+    "name": "Alice",
+    "age": 25,
+    "city": "NYC",
+    "hobbies": ["reading", "coding"],
+    "active": True
+}
+
+# Convert to JSON string
+json_string = json.dumps(data)
+print(json_string)  # {"name": "Alice", "age": 25, ...}
+
+# Pretty print with indentation
+json_pretty = json.dumps(data, indent=2)
+print(json_pretty)
+
+# Write to file
+with open('data.json', 'w') as f:
+    json.dump(data, f, indent=2)
+
+# JSON to Python object (Deserialization/Decoding)
+json_str = '{"name": "Bob", "age": 30, "city": "LA"}'
+python_obj = json.loads(json_str)
+print(python_obj["name"])  # Bob
+
+# Read from file
+with open('data.json', 'r') as f:
+    data_from_file = json.load(f)
+
+# Custom serialization
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+person = Person("Charlie", 35)
+
+# Method 1: Using default parameter
+def serialize_person(obj):
+    if isinstance(obj, Person):
+        return {"name": obj.name, "age": obj.age}
+    raise TypeError(f"Object of type {type(obj)} is not JSON serializable")
+
+json_str = json.dumps(person, default=serialize_person)
+print(json_str)
+
+# Method 2: Custom encoder
+class PersonEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, Person):
+            return {"name": obj.name, "age": obj.age}
+        return super().default(obj)
+
+json_str = json.dumps(person, cls=PersonEncoder)
+
+# Common operations
+# 1. Nested JSON
+nested = {
+    "user": {
+        "profile": {"name": "Alice", "age": 25},
+        "settings": {"theme": "dark", "notifications": True}
+    }
+}
+print(nested["user"]["profile"]["name"])
+
+# 2. JSON arrays
+users = [
+    {"name": "Alice", "age": 25},
+    {"name": "Bob", "age": 30}
+]
+json_array = json.dumps(users)
+
+# 3. Handle special types
+data_with_date = {
+    "timestamp": "2024-01-01T12:00:00",
+    "value": 42
+}
+```
+
+**Key Takeaway:**
+`dumps()`/`dump()` for serialization, `loads()`/`load()` for deserialization. Use `indent` for readability, `default` for custom objects.
 
 ---
 
@@ -1983,6 +2147,107 @@ asyncio.run(main_async_for())
 
 **Key Takeaway:**
 Use `async def` for coroutines, `await` to pause, `asyncio.run()` to execute. Great for I/O-bound concurrency.
+
+---
+
+### Q44. Collections Module 🟡
+
+**Definition:**
+The `collections` module provides specialized container datatypes beyond the built-in dict, list, set, and tuple.
+
+**Why it matters:**
+Offers efficient, purpose-built data structures for common programming patterns.
+
+**Code Example:**
+```python
+from collections import Counter, defaultdict, OrderedDict, deque, namedtuple
+
+# Counter - Count hashable objects
+text = "hello world"
+char_count = Counter(text)
+print(char_count)  # Counter({'l': 3, 'o': 2, ...})
+print(char_count.most_common(3))  # [('l', 3), ('o', 2), (' ', 1)]
+
+# Update counter
+char_count.update("hello")
+print(char_count['l'])  # 6
+
+# Subtract
+char_count.subtract("world")
+
+# defaultdict - Dictionary with default values
+word_lengths = defaultdict(int)
+for word in ["hello", "world", "python"]:
+    word_lengths[word] += len(word)
+print(word_lengths)  # defaultdict(<class 'int'>, {'hello': 5, ...})
+
+# List as default
+d = defaultdict(list)
+d['fruits'].append('apple')
+d['fruits'].append('banana')
+print(d)  # defaultdict(<class 'list'>, {'fruits': ['apple', 'banana']})
+
+# OrderedDict - Maintains insertion order (pre-Python 3.7)
+od = OrderedDict()
+od['a'] = 1
+od['b'] = 2
+od['c'] = 3
+print(od)  # OrderedDict([('a', 1), ('b', 2), ('c', 3)])
+
+# Move to end
+od.move_to_end('a')
+print(od)  # OrderedDict([('b', 2), ('c', 3), ('a', 1)])
+
+# popitem(last=False) removes first item
+first_item = od.popitem(last=False)
+
+# deque - Double-ended queue (efficient append/pop from both ends)
+queue = deque([1, 2, 3])
+queue.append(4)      # Right end
+queue.appendleft(0)  # Left end
+print(queue)  # deque([0, 1, 2, 3, 4])
+
+queue.pop()       # Remove from right
+queue.popleft()   # Remove from left
+print(queue)  # deque([1, 2, 3])
+
+# Rotate
+queue.rotate(1)  # Right rotation
+queue.rotate(-1) # Left rotation
+
+# Bounded deque (useful for recent items)
+recent = deque(maxlen=3)
+for i in range(5):
+    recent.append(i)
+print(recent)  # deque([2, 3, 4], maxlen=3)
+
+# namedtuple - Lightweight object classes
+Person = namedtuple('Person', ['name', 'age', 'city'])
+alice = Person(name="Alice", age=25, city="NYC")
+print(alice.name)  # Alice
+print(alice.age)   # 25
+
+# Unpack
+name, age, city = alice
+
+# Convert to dict
+alice_dict = alice._asdict()
+
+# Replace fields
+bob = alice._replace(name="Bob")
+print(bob)  # Person(name='Bob', age=25, city='NYC')
+
+# ChainMap - Group multiple dicts
+from collections import ChainMap
+defaults = {'theme': 'dark', 'language': 'en'}
+user_prefs = {'theme': 'light'}
+combined = ChainMap(user_prefs, defaults)
+print(combined['theme'])     # 'light' (user pref)
+print(combined['language'])  # 'en' (default)
+```
+
+**Key Takeaway:**
+`Counter` for counting, `defaultdict` for auto-initializing dicts, `deque` for efficient queues, `namedtuple` for lightweight objects.
 
 ---
 
@@ -2282,6 +2547,136 @@ class Stack(Generic[T]):
 
 **Key Takeaway:**
 Type hints improve code readability and enable static type checking. Use `mypy` for verification.
+
+---
+
+### Q51. Context Manager Protocol 🔴
+
+**Definition:**
+Advanced context manager implementation using `__enter__` and `__exit__` methods for custom resource management.
+
+**Why it matters:**
+Essential for creating custom context managers beyond `with open()` - database connections, locks, network resources.
+
+**Code Example:**
+```python
+# Class-based Context Manager
+class DatabaseConnection:
+    def __init__(self, db_name):
+        self.db_name = db_name
+        self.connection = None
+    
+    def __enter__(self):
+        print(f"Connecting to {self.db_name}...")
+        # Simulate connection
+        self.connection = f"Connection to {self.db_name}"
+        return self.connection
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print(f"Closing connection to {self.db_name}...")
+        self.connection = None
+        
+        # Handle exceptions
+        if exc_type is not None:
+            print(f"Exception occurred: {exc_val}")
+            # Return True to suppress exception
+            # return True
+        return False
+
+# Usage
+with DatabaseConnection("mydb") as conn:
+    print(f"Using {conn}")
+    # Exception handling demonstration
+    # raise ValueError("Test error")
+
+print("Connection closed automatically")
+
+# Context Manager with contextlib
+from contextlib import contextmanager
+
+@contextmanager
+def file_manager(filename, mode):
+    """Custom file context manager"""
+    print(f"Opening {filename} in {mode} mode")
+    f = open(filename, mode)
+    try:
+        yield f
+    finally:
+        print(f"Closing {filename}")
+        f.close()
+
+# Usage
+with file_manager('test.txt', 'w') as f:
+    f.write("Hello, World!")
+
+# Advanced: Multiple context managers
+class TransactionManager:
+    def __init__(self, db_connection):
+        self.db = db_connection
+        self.transaction_id = None
+    
+    def __enter__(self):
+        print("Starting transaction...")
+        self.transaction_id = "TXN-12345"
+        return self.transaction_id
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if exc_type is None:
+            print(f"Committing transaction {self.transaction_id}")
+            # commit logic here
+        else:
+            print(f"Rolling back transaction {self.transaction_id}")
+            # rollback logic here
+        return False
+
+# Nested context managers
+with DatabaseConnection("mydb") as conn:
+    with TransactionManager(conn) as txn:
+        print(f"Transaction {txn} on {conn}")
+        # Perform database operations
+
+# Using multiple contexts in one line
+with DatabaseConnection("db1") as conn1, DatabaseConnection("db2") as conn2:
+    print(f"Connected to {conn1} and {conn2}")
+
+# Suppressing specific exceptions
+class SuppressError:
+    def __enter__(self):
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if exc_type == ValueError:
+            print("Suppressing ValueError")
+            return True  # Suppress the exception
+        return False
+
+with SuppressError():
+    raise ValueError("This won't crash")
+
+print("Continues after suppressed error")
+
+# Real-world example: Timing code execution
+import time
+from contextlib import contextmanager
+
+@contextmanager
+def timer(label="Operation"):
+    start = time.time()
+    try:
+        yield
+    finally:
+        end = time.time()
+        print(f"{label}: {end - start:.4f} seconds")
+
+with timer("Database Query"):
+    time.sleep(0.5)  # Simulate query
+
+with timer("File Processing"):
+    time.sleep(0.3)  # Simulate processing
+```
+
+**Key Takeaway:**
+Implement `__enter__`/`__exit__` for class-based managers or use `@contextmanager` decorator. Handle cleanup in `__exit__`, return True to suppress exceptions.
 
 ---
 
