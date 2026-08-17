@@ -960,30 +960,27 @@ Red Flags for Interviewers
 
     No discussion of monitoring/metrics
 
-14. Additional Resources
-Books
+## 14. Additional Resources
 
-    Designing Data-Intensive Applications by Martin Kleppmann
+### Books
 
-    System Design Interview by Alex Xu (Vol 1 & 2)
+- Designing Data-Intensive Applications by Martin Kleppmann
+- System Design Interview by Alex Xu (Vol 1 & 2)
+- Building Microservices by Sam Newman
 
-    Building Microservices by Sam Newman
+### Online Resources
 
-Online Resources
+- GitHub: donnemartin/system-design-primer
+- High Scalability Blog (highscalability.com)
+- AWS Architecture Center
+- Google Cloud Architecture Framework
 
-    GitHub: donnemartin/system-design-primer
+### Practice Platforms
 
-    High Scalability Blog (highscalability.com)
+- LeetCode System Design questions
+- Pramp (mock interviews)
+- Interviewing.io
 
-    AWS Architecture Center
+---
 
-    Google Cloud Architecture Framework
-
-Practice Platforms
-
-    LeetCode System Design questions
-
-    Pramp (mock interviews)
-
-    Interviewing.io
-```
+**End of System Design Interview Guide**
