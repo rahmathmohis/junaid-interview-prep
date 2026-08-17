@@ -1,8 +1,4 @@
 
----
-# File 2: `Behavioral_Interview_Questions_Guide.md`
-
-```markdown
 # Behavioral Interview Questions Guide
 
 ## Table of Contents
@@ -17,7 +13,9 @@
 8. Preparation Tips
 9. Practice Exercises
 10. Common Mistakes to Avoid
+
 ---
+
 ## 1. Introduction
 
 Behavioral interviews assess how you've handled situations in the past to predict your future performance. Unlike technical interviews that test what you know, behavioral interviews test **who you are** and **how you work**.
