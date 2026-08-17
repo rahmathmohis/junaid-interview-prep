@@ -12,9 +12,9 @@ A comprehensive repository covering all essential topics for technical interview
 - [💾 DBMS](#dbms) - 50 Q&A on database concepts
 - [🔧 OOPS](#oops) - 30 Q&A with practical examples
 - [📊 DSA](#dsa) - Data Structures & Algorithms guide + Top 50 coding questions
-- [🏗️ System Design](#system-design) - Coming soon
+- [🏗️ System Design](#system-design) - Complete guide with concepts and practice problems
 - [🏦 Bank Application](#bank-application) - Production-quality OOP demo
-- [📝 Behavioral Questions](#behavioral-questions) - Coming soon
+- [📝 Behavioral Questions](#behavioral-questions) - HR interview guide with STAR method
 
 ---
 
@@ -71,8 +71,9 @@ A comprehensive repository covering all essential topics for technical interview
 
 **Complete DSA Guide** with theory and Top 50 coding questions
 
-[View DSA Guide →](DSA/DSA_Guide.md)  
-[Top 50 Coding Questions →](DSA/Top_50_Coding_Questions.ipynb)
+[View DSA Guide →](DSA/DSA_Data_Structures_Guide.md)  
+[Top 50 Coding Questions (IPYNB) →](DSA/Top_50_Coding_Questions.ipynb)  
+[Top 50 Coding Questions (MD) →](DSA/Top_50_Coding_Questions.md)
 
 **Key Topics:**
 - Arrays, Strings, Linked Lists
@@ -85,15 +86,21 @@ A comprehensive repository covering all essential topics for technical interview
 
 ## 🏗️ System Design
 
-*Coming Soon* - Basic system design concepts for interviews
+**Comprehensive system design guide** covering scalability, caching, databases, and more
 
-**Planned Topics:**
-- Scalability fundamentals
-- Load balancing
-- Caching strategies
-- Database sharding
-- API design
+[View System Design Guide →](System_Design/System_Design_Guide.md)
+
+**Key Topics:**
+- Scalability fundamentals (vertical vs horizontal)
+- Load balancing strategies and algorithms
+- Caching patterns and eviction policies
+- Database sharding and partitioning
+- API design (REST, GraphQL)
 - Microservices architecture
+- Message queues and event-driven systems
+- Consistency and availability patterns
+- System design interview framework
+- Practice problems (URL shortener, chat app, YouTube, etc.)
 
 ---
 
@@ -111,14 +118,20 @@ Production-quality OOP demonstration with:
 
 ## 📝 Behavioral Questions
 
-*Coming Soon* - Common HR and behavioral interview questions
+**Complete behavioral interview guide** with STAR method and sample answers
 
-**Planned Topics:**
-- "Tell me about yourself"
-- Strengths & weaknesses
-- Conflict resolution
-- Teamwork scenarios
-- Project discussions
+[View Behavioral Questions Guide →](Behavioral/Behavioral_Questions_Guide.md)
+
+**Key Topics:**
+- Understanding behavioral interviews
+- STAR method framework (Situation, Task, Action, Result)
+- Common questions ("Tell me about yourself", strengths/weaknesses)
+- Leadership and teamwork scenarios
+- Problem-solving and conflict resolution
+- Career and growth questions
+- Questions to ask the interviewer
+- Preparation tips and practice exercises
+- Top 20 most common behavioral questions
 
 ---
 
@@ -138,10 +151,13 @@ Production-quality OOP demonstration with:
 - Day 1-3: Theory & algorithms
 - Day 4-10: Solve Top 50 coding questions
 
-### Week 5: Mock Interviews
-- Practice behavioral questions
-- System design basics
-- Mock coding interviews
+### Week 5: System Design & Behavioral
+- Day 1-3: System design concepts and frameworks
+- Day 4-5: Practice system design problems
+- Day 6-8: Prepare behavioral stories using STAR method
+- Day 9-10: Mock behavioral interviews
+
+### Week 6: Mock Interviews
 
 ---
 
@@ -164,8 +180,8 @@ Production-quality OOP demonstration with:
 | OOPS | 30 | 30 | ✅ Complete |
 | DSA Theory | - | - | ✅ Complete |
 | DSA Problems | 50 | In notebooks | 🔄 Needs .py files |
-| System Design | - | - | ⏳ Coming Soon |
-| Behavioral | - | - | ⏳ Coming Soon |
+| System Design | Complete Guide | All topics | ✅ Complete |
+| Behavioral | 20+ Questions | With STAR answers | ✅ Complete |
 
 ---
 

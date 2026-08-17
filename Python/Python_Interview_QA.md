@@ -3359,16 +3359,6 @@ Design patterns solve common problems. Know Singleton, Factory, Observer, Strate
 | **Insert/Delete** | O(n) | N/A | O(1) | O(1) |
 | **Memory** | High | Low | Medium | High |
 
-### Python 2 vs Python 3
-
-| Feature | Python 2 | Python 3 |
-|---------|----------|----------|
-| **Print** | `print "hello"` | `print("hello")` |
-| **Division** | `5/2 = 2` | `5/2 = 2.5` |
-| **Unicode** | ASCII default | Unicode default |
-| **range()** | Returns list | Returns iterator |
-| **input()** | Returns string | Returns string (eval removed) |
-
 ---
 
 ## 🎯 Top 15 Most Asked Questions
